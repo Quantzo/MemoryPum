@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MemoryPum</string>
+    <string name="title_activity_main">Test</string>
 </resources>
