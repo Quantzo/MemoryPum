@@ -14,7 +14,7 @@ class InstructionActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_instruction)
-        instructionActivityGestureListener = GestureDetectorCompat(this, InstructionActivityGestures())
+        instructionActivityGestureListener = GestureDetectorCompat(this, InstructionActivityGestures(this))
     }
 
     override fun onTouchEvent(event: MotionEvent?): Boolean {
@@ -22,7 +22,7 @@ class InstructionActivity : AppCompatActivity() {
         return super.onTouchEvent(event)
     }
 
-    class InstructionActivityGestures : AppGesturesListener()
+    class InstructionActivityGestures(context: AppCompatActivity) : AppGesturesListener(context)
     {
         //Dismiss/next
         override fun onSwipeLeft(){}
@@ -31,7 +31,9 @@ class InstructionActivity : AppCompatActivity() {
         //Repeat
         override fun onSwipeUp(){}
         //Return to main
-        override fun onLongPress(){}
+        override fun onLongPress(){
+            context.finish()
+        }
 
 
         override fun onSwipeDown(){}

@@ -14,14 +14,14 @@ class GameActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game)
-        gameActivityGestureListener = GestureDetectorCompat(this, GameActivityGestures())
+        gameActivityGestureListener = GestureDetectorCompat(this, GameActivityGestures(this))
     }
     override fun onTouchEvent(event: MotionEvent?): Boolean {
         gameActivityGestureListener?.onTouchEvent(event)
         return super.onTouchEvent(event)
     }
 
-    class GameActivityGestures : AppGesturesListener()
+    class GameActivityGestures(context: AppCompatActivity) : AppGesturesListener(context)
     {
         //Move Right
         override fun onSwipeLeft(){}

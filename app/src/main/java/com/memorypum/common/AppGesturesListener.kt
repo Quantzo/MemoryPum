@@ -1,13 +1,15 @@
 package com.memorypum.common
 
+import android.support.v7.app.AppCompatActivity
 import android.view.GestureDetector
 import android.view.MotionEvent
 
 
-abstract class AppGesturesListener() : GestureDetector.SimpleOnGestureListener() {
+abstract class AppGesturesListener(val context: AppCompatActivity) : GestureDetector.SimpleOnGestureListener() {
 
     private val swipeThreshold:Int = 100
     private val velocityThreshold:Int = 100
+
 
 
 
