@@ -22,6 +22,7 @@ class InstructionActivity : AppCompatActivity() {
         return super.onTouchEvent(event)
     }
 
+
     class InstructionActivityGestures(context: AppCompatActivity) : AppGesturesListener(context)
     {
         //Dismiss/next

@@ -49,6 +49,7 @@ class MainActivity : AppCompatActivity() {
             when(requestCode)
             {
                 RequestCodes.CONFIG_ACTIVITY.value -> numberOfPairs = data?.getIntExtra("Number_Of_Pairs", numberOfPairs) ?: numberOfPairs
+                RequestCodes.GAME_ACTIVITY.value -> playResults(data?.getIntExtra("Game_Result", 0) ?: 0)
                 else -> Log.w("MyActivity", "Undefined Request Code")
             }
 
@@ -66,8 +67,13 @@ class MainActivity : AppCompatActivity() {
         editor?.apply()
     }
 
+    private fun playResults(points: Int) {
+        //TODO("Play Results")
+    }
 
-
+    private fun playInstructions() {
+        //TODO("play Main Menu Instructions")
+    }
 
 
     class MainActivityGestures(context: AppCompatActivity) : AppGesturesListener(context)
@@ -76,7 +82,7 @@ class MainActivity : AppCompatActivity() {
         override fun onSwipeLeft(){
             val intent = Intent(context, GameActivity::class.java)
             intent.putExtra("Number_Of_Pairs",(context as MainActivity).numberOfPairs)
-            context.startActivity(intent)
+            context.startActivityForResult(intent, RequestCodes.GAME_ACTIVITY.value)
         }
         //config
         override fun onSwipeRight(){

@@ -5,6 +5,7 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.view.GestureDetectorCompat
+import android.support.v7.widget.AppCompatTextView
 import android.view.MotionEvent
 import com.memorypum.R
 import com.memorypum.common.AppGesturesListener
@@ -15,15 +16,23 @@ class ConfigActivity : AppCompatActivity() {
     var numberOfPairs = 0
         get
         set(value) {
-            if(value < 2) field = 2 else field = value
+            if (value < 2) field = 2 else if (value > 100) field = 100 else field = value
+            textView?.text = field.toString()
         }
+
+    var textView: AppCompatTextView? = null
+        private set
+        get
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_config)
         configActivityGestureListener = GestureDetectorCompat(this, ConfigActivityGestures(this))
 
+        textView = findViewById(R.id.textConfig) as AppCompatTextView
         numberOfPairs = intent.getIntExtra("Number_Of_Pairs",8)
+
+
     }
 
     override fun onTouchEvent(event: MotionEvent?): Boolean {

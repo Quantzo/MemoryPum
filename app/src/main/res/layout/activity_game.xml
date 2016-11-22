@@ -10,4 +10,10 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.memorypum.gameActivity.GameActivity">
 
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/textGame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textAlignment="center" />
+
 </RelativeLayout>

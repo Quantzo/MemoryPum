@@ -14,13 +14,13 @@
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".configActivity.ConfigActivity" />
         <activity android:name=".gameActivity.GameActivity" />
-        <activity android:name=".instructionActivity.InstructionActivity"></activity>
+        <activity android:name=".instructionActivity.InstructionActivity" />
+
     </application>
 
 </manifest>
