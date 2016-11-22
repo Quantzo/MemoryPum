@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.speech.tts.TextToSpeech
 import android.support.v4.view.GestureDetectorCompat
 import android.util.Log
 import android.view.MotionEvent
@@ -14,7 +15,7 @@ import com.memorypum.common.RequestCodes
 import com.memorypum.configActivity.ConfigActivity
 import com.memorypum.gameActivity.GameActivity
 import com.memorypum.instructionActivity.InstructionActivity
-
+import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -24,7 +25,9 @@ class MainActivity : AppCompatActivity() {
     var numberOfPairs:Int = 0
         get
         private set
-
+    var textToSpeech:TextToSpeech? = null
+        get
+        private set
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +37,9 @@ class MainActivity : AppCompatActivity() {
 
         preferences = this.getSharedPreferences("Game_Config",android.content.Context.MODE_PRIVATE)
         numberOfPairs = preferences?.getInt("Number_Of_Pairs", 8) ?: 8
+
+        textToSpeech = TextToSpeech(applicationContext, {status ->  if(status != TextToSpeech.ERROR){ textToSpeech?.language = Locale.getDefault(); playInstructions()}} )
+
 
     }
 
@@ -68,13 +74,23 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun playResults(points: Int) {
-        //TODO("Play Results")
+        textToSpeech?.speak("You scored $points points", TextToSpeech.QUEUE_FLUSH, null, "MainMenuResults")
     }
 
     private fun playInstructions() {
-        //TODO("play Main Menu Instructions")
+        textToSpeech?.speak(resources.getString(R.string.main_menu_instructions), TextToSpeech.QUEUE_FLUSH, null, "MainMenuInstructions")
     }
 
+    override fun onDestroy() {
+        textToSpeech?.stop()
+        textToSpeech?.shutdown()
+        super.onDestroy()
+    }
+
+    override fun onPause() {
+        textToSpeech?.stop()
+        super.onPause()
+    }
 
     class MainActivityGestures(context: AppCompatActivity) : AppGesturesListener(context)
     {
@@ -108,4 +124,5 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+
 }

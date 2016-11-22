@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">MemoryPum</string>
     <string name="title_activity_main">Test</string>
+    <string name="main_menu_instructions">Swipe left to configure the game. Swipe Right to start the game. Double touch for instructions. Long press to exit the application</string>
+    <string name="instruction_instruction">Swipe left to play next message. Swipe Right to play previous message. Swipe up to repeat current message. Long press to exit instructions menu.</string>
+    <string name="instruction_config">Test message 2</string>
+    <string name="instruction_game">Test message 3</string>
+    <string name="instruction_gameRules">Test message 4</string>
 </resources>

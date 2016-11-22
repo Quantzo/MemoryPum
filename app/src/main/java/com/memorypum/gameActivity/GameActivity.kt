@@ -103,9 +103,8 @@ class GameActivity : AppCompatActivity() {
                 } else {
                     if (resultOfSecondCardReveal) {
                         context.textView?.text = context.game?.getCurrentIdIfRevealed().toString()
-                        context.points += 1
-                        //if(context.game?.isGameOver() ?: false)
-                        //TODO("Signal that the game is over")
+                        context.points += 2
+                        if(context.game?.isGameOver() ?: false)(context as? GameActivity)?.finish()
                         //TODO("Signal that the Pair was Guessed")
 
                     } else {
