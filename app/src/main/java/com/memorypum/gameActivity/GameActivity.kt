@@ -53,7 +53,7 @@ class GameActivity : AppCompatActivity() {
     {
         //Move Right
         override fun onSwipeLeft() {
-            val result = (context as GameActivity).game?.move({ p, mF -> p + 1 <= mF }, { p, r, m -> Math.min(m, (p * r) + 4) }, { p -> p + 1 }) ?: false
+            val result = (context as GameActivity).game?.move({ p, mF -> p + 1 <= mF }, {r, m -> Math.min(m, (5 * r) + 4) }, { p -> p + 1 }) ?: false
 
             if (!result) {
                 //TODO("Signal that move was unsuccessful")
@@ -65,7 +65,7 @@ class GameActivity : AppCompatActivity() {
         }
         //Move Left
         override fun onSwipeRight() {
-            val result = (context as GameActivity).game?.move({ p, mF -> p - 1 >= mF }, { p, r, m -> r * 5 }, { p -> p - 1 }) ?: false
+            val result = (context as GameActivity).game?.move({ p, mF -> p - 1 >= mF }, { r, m -> r * 5 }, { p -> p - 1 }) ?: false
             if (!result) {
                 //TODO("Signal that move was unsuccessful")
             } else {
@@ -74,7 +74,7 @@ class GameActivity : AppCompatActivity() {
         }
         //Move Down
         override fun onSwipeUp() {
-            val result = (context as GameActivity).game?.move({ p, mF -> p + 5 <= mF }, { p, r, m -> m }, { p -> p + 5 }) ?: false
+            val result = (context as GameActivity).game?.move({ p, mF -> p + 5 <= mF }, {r, m -> m }, { p -> p + 5 }) ?: false
             if (!result) {
                 //TODO("Signal that move was unsuccessful")
             } else {
@@ -83,7 +83,7 @@ class GameActivity : AppCompatActivity() {
         }
         //Move Up
         override fun onSwipeDown() {
-            val result = (context as GameActivity).game?.move({ p, mF -> p - 5 >= mF }, { p, r, m -> 0 }, { p -> p - 5 }) ?: false
+            val result = (context as GameActivity).game?.move({ p, mF -> p - 5 >= mF }, {r, m -> 0 }, { p -> p - 5 }) ?: false
             if (!result) {
                 //TODO("Signal that move was unsuccessful")
             } else {

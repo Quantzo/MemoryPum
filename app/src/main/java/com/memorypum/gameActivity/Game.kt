@@ -58,9 +58,9 @@ class Game(val numberOfPairs: Int) {
     }
 
 
-    fun move(func: (currentPosition: Int, minMax: Int) -> Boolean, minMax: (currentPosition: Int, currentRow: Int, maxNumber: Int) -> Int, moveAct: (currentPosition: Int) -> Int): Boolean {
+    fun move(func: (currentPosition: Int, minMax: Int) -> Boolean, minMax: (currentRow: Int, maxNumber: Int) -> Int, moveAct: (currentPosition: Int) -> Int): Boolean {
 
-        val canMove = func(currentItem, minMax(currentItem, currentRow, (numberOfPairs * 2) - 1))
+        val canMove = func(currentItem, minMax(currentRow, (numberOfPairs * 2) - 1))
 
         if (canMove) {
             currentItem = moveAct(currentItem)
