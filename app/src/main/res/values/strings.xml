@@ -1,9 +1,66 @@
 <resources>
     <string name="app_name">MemoryPum</string>
     <string name="title_activity_main">Test</string>
-    <string name="main_menu_instructions">Swipe left to configure the game. Swipe Right to start the game. Double touch for instructions. Long press to exit the application</string>
-    <string name="instruction_instruction">Swipe left to play next message. Swipe Right to play previous message. Swipe up to repeat current message. Long press to exit instructions menu.</string>
+    <string name="main_menu_instructions">Swipe right to configure the game. Swipe left to start the game. Double touch for instructions. Long press to exit the application</string>
+    <string name="instruction_instruction">Swipe left to play next message. Swipe right to play previous message. Swipe up to repeat current message. Long press to exit instructions menu.</string>
     <string name="instruction_config">Test message 2</string>
     <string name="instruction_game">Test message 3</string>
     <string name="instruction_gameRules">Test message 4</string>
+    <string-array name="game_gameIds">
+        <!--Animals20-->
+        <item>Dog</item>
+        <item>Cat</item>
+        <item>Fox</item>
+        <item>Rabbit</item>
+        <item>Wolf</item>
+        <item>Bear</item>
+        <item>Eagle</item>
+        <item>Fish</item>
+        <item>Cow</item>
+        <item>Pig</item>
+        <item>Sheep</item>
+        <item>Hamster</item>
+        <item>Elephant</item>
+        <item>Monkey</item>
+        <item>Lion</item>
+        <item>Tiger</item>
+        <item>Penguin</item>
+        <item>Crab</item>
+        <item>Whale</item>
+        <item>Lobster</item>
+        <!--Fruits20-->
+        <item>Apple</item>
+        <item>Pineapple</item>
+        <item>Strawberry</item>
+        <item>Cherry</item>
+        <item>Orange</item>
+        <item>Grape</item>
+        <item>Watermelon</item>
+        <item>Banana</item>
+        <item>Apricot</item>
+        <item>Coconut</item>
+        <item>Cranberry</item>
+        <item>Lemon</item>
+        <item>Mango</item>
+        <item>Peach</item>
+        <item>Pear</item>
+        <item>Plum</item>
+        <item>Raspberry</item>
+        <item>Avocado</item>
+        <item>Lychee</item>
+        <!--Things10-->
+        <item>House</item>
+        <item>Car</item>
+        <item>Road</item>
+        <item>Tree</item>
+        <item>Grass</item>
+        <item>Cup</item>
+        <item>Fridge</item>
+        <item>Lamp</item>
+        <item>Knife</item>
+        <item>Key</item>
+        <item>Mirror</item>
+    </string-array>
+    <string name="game_second_card_success"> pair found</string>
+    <string name="game_second_card_fail"> and </string>
 </resources>

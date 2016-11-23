@@ -16,7 +16,7 @@ class ConfigActivity : AppCompatActivity() {
     var numberOfPairs = 0
         get
         set(value) {
-            if (value < 2) field = 2 else if (value > 100) field = 100 else field = value
+            if (value < 2) field = 2 else if (value > 50) field = 50 else field = value
             textView?.text = field.toString()
         }
 
