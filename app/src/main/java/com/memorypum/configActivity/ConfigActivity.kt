@@ -1,9 +1,11 @@
 package com.memorypum.configActivity
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Vibrator
 import android.support.v4.view.GestureDetectorCompat
 import android.support.v7.widget.AppCompatTextView
 import android.view.MotionEvent
@@ -16,7 +18,15 @@ class ConfigActivity : AppCompatActivity() {
     var numberOfPairs = 0
         get
         set(value) {
-            if (value < 2) field = 2 else if (value > 50) field = 50 else field = value
+            if (value < 2) {
+                field = 2
+                vibrate()
+            } else if (value > 50) {
+                field = 50
+                vibrate()
+            } else {
+                field = value
+            }
             textView?.text = field.toString()
         }
 
@@ -34,6 +44,13 @@ class ConfigActivity : AppCompatActivity() {
 
 
     }
+
+
+    fun vibrate() {
+        val v = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+        if (v.hasVibrator()) v.vibrate(400)
+    }
+
 
     override fun onTouchEvent(event: MotionEvent?): Boolean {
         configActivityGestureListener?.onTouchEvent(event)

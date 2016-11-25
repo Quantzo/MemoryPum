@@ -74,7 +74,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun playResults(points: Int) {
-        textToSpeech?.speak("You scored $points points", TextToSpeech.QUEUE_FLUSH, null, "MainMenuResults")
+
+        textToSpeech?.speak(resources.getString(R.string.main_menu_score, points), TextToSpeech.QUEUE_FLUSH, null, "MainMenuResults")
     }
 
     private fun playInstructions() {

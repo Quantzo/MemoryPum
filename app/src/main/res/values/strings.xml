@@ -8,59 +8,114 @@
     <string name="instruction_gameRules">Test message 4</string>
     <string-array name="game_gameIds">
         <!--Animals20-->
-        <item>Dog</item>
-        <item>Cat</item>
-        <item>Fox</item>
-        <item>Rabbit</item>
-        <item>Wolf</item>
-        <item>Bear</item>
-        <item>Eagle</item>
-        <item>Fish</item>
-        <item>Cow</item>
-        <item>Pig</item>
-        <item>Sheep</item>
-        <item>Hamster</item>
-        <item>Elephant</item>
-        <item>Monkey</item>
-        <item>Lion</item>
-        <item>Tiger</item>
-        <item>Penguin</item>
-        <item>Crab</item>
-        <item>Whale</item>
-        <item>Lobster</item>
+        <item>@string/array1</item>
+        <item>@string/array2</item>
+        <item>@string/array3</item>
+        <item>@string/array4</item>
+        <item>@string/array5</item>
+        <item>@string/array6</item>
+        <item>@string/array7</item>
+        <item>@string/array8</item>
+        <item>@string/array9</item>
+        <item>@string/array10</item>
+        <item>@string/array11</item>
+        <item>@string/array12</item>
+        <item>@string/array13</item>
+        <item>@string/array14</item>
+        <item>@string/array15</item>
+        <item>@string/array16</item>
+        <item>@string/array17</item>
+        <item>@string/array18</item>
+        <item>@string/array19</item>
+        <item>@string/array20</item>
         <!--Fruits20-->
-        <item>Apple</item>
-        <item>Pineapple</item>
-        <item>Strawberry</item>
-        <item>Cherry</item>
-        <item>Orange</item>
-        <item>Grape</item>
-        <item>Watermelon</item>
-        <item>Banana</item>
-        <item>Apricot</item>
-        <item>Coconut</item>
-        <item>Cranberry</item>
-        <item>Lemon</item>
-        <item>Mango</item>
-        <item>Peach</item>
-        <item>Pear</item>
-        <item>Plum</item>
-        <item>Raspberry</item>
-        <item>Avocado</item>
-        <item>Lychee</item>
+        <item>@string/array21</item>
+        <item>@string/array22</item>
+        <item>@string/array23</item>
+        <item>@string/array24</item>
+        <item>@string/array25</item>
+        <item>@string/array26</item>
+        <item>@string/array27</item>
+        <item>@string/array28</item>
+        <item>@string/array29</item>
+        <item>@string/array30</item>
+        <item>@string/array31</item>
+        <item>@string/array32</item>
+        <item>@string/array33</item>
+        <item>@string/array34</item>
+        <item>@string/array35</item>
+        <item>@string/array36</item>
+        <item>@string/array37</item>
+        <item>@string/array38</item>
+        <item>@string/array39</item>
+        <item>@string/array40</item>
         <!--Things10-->
-        <item>House</item>
-        <item>Car</item>
-        <item>Road</item>
-        <item>Tree</item>
-        <item>Grass</item>
-        <item>Cup</item>
-        <item>Fridge</item>
-        <item>Lamp</item>
-        <item>Knife</item>
-        <item>Key</item>
-        <item>Mirror</item>
+        <item>@string/array41</item>
+        <item>@string/array42</item>
+        <item>@string/array43</item>
+        <item>@string/array44</item>
+        <item>@string/array45</item>
+        <item>@string/array46</item>
+        <item>@string/array47</item>
+        <item>@string/array48</item>
+        <item>@string/array49</item>
+        <item>@string/array50</item>
     </string-array>
     <string name="game_second_card_success"> pair found</string>
     <string name="game_second_card_fail"> and </string>
+    <string name="main_menu_score">"You scored %1$d points"</string>
+
+    <!--Animals20-->
+    <string name="array1">Dog</string>
+    <string name="array2">Cat</string>
+    <string name="array3">Fox</string>
+    <string name="array4">Rabbit</string>
+    <string name="array5">Wolf</string>
+    <string name="array6">Bear</string>
+    <string name="array7">Eagle</string>
+    <string name="array8">Fish</string>
+    <string name="array9">Cow</string>
+    <string name="array10">Pig</string>
+    <string name="array11">Sheep</string>
+    <string name="array12">Hamster</string>
+    <string name="array13">Elephant</string>
+    <string name="array14">Monkey</string>
+    <string name="array15">Lion</string>
+    <string name="array16">Tiger</string>
+    <string name="array17">Penguin</string>
+    <string name="array18">Crab</string>
+    <string name="array19">Whale</string>
+    <string name="array20">Lobster</string>
+    <!--Fruits20-->
+    <string name="array21">Apple</string>
+    <string name="array22">Pineapple</string>
+    <string name="array23">Strawberry</string>
+    <string name="array24">Cherry</string>
+    <string name="array25">Orange</string>
+    <string name="array26">Grape</string>
+    <string name="array27">Watermelon</string>
+    <string name="array28">Banana</string>
+    <string name="array29">Apricot</string>
+    <string name="array30">Coconut</string>
+    <string name="array31">Cranberry</string>
+    <string name="array32">Lemon</string>
+    <string name="array33">Mango</string>
+    <string name="array34">Peach</string>
+    <string name="array35">Pear</string>
+    <string name="array36">Plum</string>
+    <string name="array37">Raspberry</string>
+    <string name="array38">Avocado</string>
+    <string name="array39">Lychee</string>
+    <!--Things10-->
+    <string name="array40">House</string>
+    <string name="array41">Car</string>
+    <string name="array42">Road</string>
+    <string name="array43">Tree</string>
+    <string name="array44">Grass</string>
+    <string name="array45">Cup</string>
+    <string name="array46">Fridge</string>
+    <string name="array47">Lamp</string>
+    <string name="array48">Knife</string>
+    <string name="array49">Key</string>
+    <string name="array50">Mirror</string>
 </resources>

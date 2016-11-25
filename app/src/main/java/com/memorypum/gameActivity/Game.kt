@@ -31,7 +31,7 @@ class Game(val numberOfPairs: Int) {
     }
 
     fun isGameOver(): Boolean {
-        return gameMap.isAnyPairsLeft()
+        return !gameMap.isAnyPairsLeft()
     }
 
     fun reveal(): RevealResult {

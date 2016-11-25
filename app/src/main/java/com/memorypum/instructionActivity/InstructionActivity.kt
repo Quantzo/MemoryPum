@@ -1,7 +1,9 @@
 package com.memorypum.instructionActivity
 
+import android.content.Context
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Vibrator
 import android.speech.tts.TextToSpeech
 import android.speech.tts.UtteranceProgressListener
 import android.support.v4.view.GestureDetectorCompat
@@ -22,9 +24,7 @@ class InstructionActivity : AppCompatActivity() {
 
     var currentIndex:Int = 0
         get
-        set(value) {
-            if(value < 0) field = 0 else if (value > 4) field = 4 else field = value
-        }
+        set
     val textLog = mutableListOf<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -66,26 +66,41 @@ class InstructionActivity : AppCompatActivity() {
 
     private fun playCurrentItem()
     {
-        if(currentIndex < textLog.size) textToSpeech?.speak(textLog[currentIndex], TextToSpeech.QUEUE_FLUSH, null, "Instructions_$currentIndex")
+        textToSpeech?.speak(textLog[currentIndex], TextToSpeech.QUEUE_FLUSH, null, "Instructions_$currentIndex")
 
     }
 
     fun nextText()
     {
-        currentIndex += 1
-        playCurrentItem()
+        if (currentIndex < textLog.size) {
+            currentIndex += 1
+            playCurrentItem()
+        } else vibrate()
+
     }
 
     fun previousText()
     {
-        currentIndex -= 1
+        if (currentIndex == textLog.size) {
+            currentIndex -= 2
+        }
         playCurrentItem()
     }
 
     fun repeatText()
     {
+        if (currentIndex == textLog.size) {
+            currentIndex -= 1
+        }
         playCurrentItem()
     }
+
+
+    fun vibrate() {
+        val v = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+        if (v.hasVibrator()) v.vibrate(400)
+    }
+
 
 
     class InstructionProgressAudioListener(val activity:InstructionActivity) : UtteranceProgressListener()

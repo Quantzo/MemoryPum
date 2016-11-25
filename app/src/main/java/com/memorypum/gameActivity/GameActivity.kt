@@ -171,7 +171,9 @@ class GameActivity : AppCompatActivity() {
                     if (resultOfSecondCardReveal) {
                         context.textView?.text = context.game?.getCurrentIdIfRevealed().toString()
                         context.points += 2
-                        if(context.game?.isGameOver() ?: false)context.finish()
+                        if (context.game?.isGameOver() ?: false) {
+                            context.finish()
+                        }
                         context.succesPairReveal(firstCardId)
 
                     } else {
