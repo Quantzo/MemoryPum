@@ -3,9 +3,9 @@
     <string name="app_name">MemoryPum</string>
     <string name="game_second_card_fail">" i "</string>
     <string name="game_second_card_success">" znaleziono parę"</string>
-    <string name="instruction_config">" Test 2"</string>
-    <string name="instruction_game">" Test 3"</string>
-    <string name="instruction_gameRules">" Test 4"</string>
+    <string name="instruction_config">Instrukcja menu konfiguracji. Przeciągnij w górę by zwiększyć liczbę par, przeciągnij w dół by liczbę tę zmniejszyć. Przytrzymaj by wyjść z tego menu.</string>
+    <string name="instruction_game">Instrukcja obsługi gry. Przeciągnij w górę by przejść do niższego rzędu, przeciągnij w dół by przejść do wyższego rzędu.Przeciągnij w lewo by przejść do następnej karty, przeciągnij w prawo by przejść do porzedniej karty w rzędzie. Kliknij dwa razy by odkryć kartę. Przytrzymaj by zakończyć grę.</string>
+    <string name="instruction_gameRules">Zasady gry. Użytkownik zaczyna grę na pozycji pierwszej karty w pierwszym rzędzie. Gra kończy się po odkryciu wszystkich par kart lub po rezegnacji z gry. W jednym rzędzie znajduje się maksymalnie pięć kart. Każdy niemożliwa akcja sygnalizowana jest poprzez wibrację. Za każdą odganiętą parę gracz otrzymuje dwa punkty.</string>
     <string name="instruction_instruction">\"Przeciągnij w lewo by przewinąć do następnej wiadomości, przeciągij w prawo by wrócić do poprzedniej. Przeciągnij w górę by powtórzyć wiadomość. Przytrzymaj by powrócić do głównego menu.  \"</string>
     <string name="main_menu_instructions">\"Przeciągnij w prawo by skonfigurować grę. Przeciągnij w lewo by zacząć grę. Dotknij dwa razy by poznać reguły i instrukcję obsługi. Przytrzymaj by wyjść z aplikacji\"</string>
     <string name="title_activity_main">Test</string>

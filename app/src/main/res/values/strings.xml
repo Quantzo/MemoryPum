@@ -3,9 +3,9 @@
     <string name="title_activity_main">Test</string>
     <string name="main_menu_instructions">Swipe right to configure the game. Swipe left to start the game. Double touch for instructions. Long press to exit the application</string>
     <string name="instruction_instruction">Swipe left to play next message. Swipe right to play previous message. Swipe up to repeat current message. Long press to exit instructions menu.</string>
-    <string name="instruction_config">Test message 2</string>
-    <string name="instruction_game">Test message 3</string>
-    <string name="instruction_gameRules">Test message 4</string>
+    <string name="instruction_config">Config menu instructions. Swipe up to increase number of Pairs in the game. Swipe down to decrease this number. Long press to exit the menu.</string>
+    <string name="instruction_game">Game instructions. Swipe up to move to the lower row of cards, swipe down to the higher row of cards. Swipe left to move to the next card. Swipe Left to move to the previous card. Double touch to reveal the card. Long press to exit the game</string>
+    <string name="instruction_gameRules">"Game rules. User begins gam at first card at first row. Games ends after long press or after successful reveal of the last pair. Five is the maximum number of cards in the row. Every impossible action is signaled by vibration. For every guessed pair user gets two points. "</string>
     <string-array name="game_gameIds">
         <!--Animals20-->
         <item>@string/array1</item>

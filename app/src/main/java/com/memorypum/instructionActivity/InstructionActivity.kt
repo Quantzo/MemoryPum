@@ -74,7 +74,7 @@ class InstructionActivity : AppCompatActivity() {
     {
         if (currentIndex < textLog.size) {
             currentIndex += 1
-            playCurrentItem()
+            if(currentIndex < textLog.size) playCurrentItem()
         } else vibrate()
 
     }

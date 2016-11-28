@@ -6,15 +6,18 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Vibrator
+import android.speech.tts.TextToSpeech
 import android.support.v4.view.GestureDetectorCompat
 import android.support.v7.widget.AppCompatTextView
 import android.view.MotionEvent
 import com.memorypum.R
 import com.memorypum.common.AppGesturesListener
+import java.util.*
 
 class ConfigActivity : AppCompatActivity() {
 
     private var configActivityGestureListener: GestureDetectorCompat? = null
+    var textToSpeech: TextToSpeech? = null
     var numberOfPairs = 0
         get
         set(value) {
@@ -26,6 +29,7 @@ class ConfigActivity : AppCompatActivity() {
                 vibrate()
             } else {
                 field = value
+                textToSpeech?.speak(value.toString(), TextToSpeech.QUEUE_FLUSH, null, "Config_NumberOfPairs")
             }
             textView?.text = field.toString()
         }
@@ -41,6 +45,8 @@ class ConfigActivity : AppCompatActivity() {
 
         textView = findViewById(R.id.textConfig) as AppCompatTextView
         numberOfPairs = intent.getIntExtra("Number_Of_Pairs",8)
+
+        textToSpeech = TextToSpeech(applicationContext, {status ->  if(status != TextToSpeech.ERROR){ textToSpeech?.language = Locale.getDefault()}} )
 
 
     }
@@ -63,6 +69,20 @@ class ConfigActivity : AppCompatActivity() {
         setResult(Activity.RESULT_OK, intent)
         super.finish()
     }
+
+
+    override fun onDestroy() {
+        textToSpeech?.stop()
+        textToSpeech?.shutdown()
+        super.onDestroy()
+    }
+
+    override fun onPause() {
+        textToSpeech?.stop()
+        super.onPause()
+    }
+
+
 
     class ConfigActivityGestures(context: AppCompatActivity) : AppGesturesListener(context)
     {
