@@ -29,7 +29,7 @@ class ConfigActivity : AppCompatActivity() {
                 vibrate()
             } else {
                 field = value
-                textToSpeech?.speak(value.toString(), TextToSpeech.QUEUE_FLUSH, null, "Config_NumberOfPairs")
+                textToSpeech?.speak(value.toString(), TextToSpeech.QUEUE_FLUSH, null)
             }
             textView?.text = field.toString()
         }

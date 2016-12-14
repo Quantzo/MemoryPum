@@ -81,7 +81,7 @@ class GameActivity : AppCompatActivity() {
     fun firstCardReveal(id:Int)
     {
         val idName = idNamesList[id-1]
-        textToSpeech?.speak(idName, TextToSpeech.QUEUE_ADD, null, "Game_FirstCardReveal_$id")
+        textToSpeech?.speak(idName, TextToSpeech.QUEUE_ADD, null)
     }
     fun failPairReveal(id1:Int, id2:Int)
     {
@@ -90,13 +90,13 @@ class GameActivity : AppCompatActivity() {
 
         val res = resources.getString(R.string.game_second_card_fail)
 
-        textToSpeech?.speak(idName1 + res + idName2, TextToSpeech.QUEUE_ADD, null, "Game_Second_Fail_${id1}_$id2")
+        textToSpeech?.speak(idName1 + res + idName2, TextToSpeech.QUEUE_ADD, null)
     }
     fun succesPairReveal(id:Int)
     {
         val idName = idNamesList[id-1]
         val res = resources.getString(R.string.game_second_card_success)
-        textToSpeech?.speak(idName + res, TextToSpeech.QUEUE_ADD, null, "Game_Second_Success_$id")
+        textToSpeech?.speak(idName + res, TextToSpeech.QUEUE_ADD, null)
     }
 
     override fun onDestroy() {

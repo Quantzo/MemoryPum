@@ -66,7 +66,7 @@ class InstructionActivity : AppCompatActivity() {
 
     private fun playCurrentItem()
     {
-        textToSpeech?.speak(textLog[currentIndex], TextToSpeech.QUEUE_FLUSH, null, "Instructions_$currentIndex")
+        textToSpeech?.speak(textLog[currentIndex], TextToSpeech.QUEUE_FLUSH, null)
 
     }
 
@@ -111,9 +111,9 @@ class InstructionActivity : AppCompatActivity() {
         override fun onDone(utteranceId: String?) {
             activity.nextText()
         }
-        override fun onError(utteranceId: String?, errorCode:Int) {
-            Log.e("Ins onError", "$utteranceId errorCode:$errorCode" )
-        }
+        //override fun onError(utteranceId: String?, errorCode:Int) {
+        //    Log.e("Ins onError", "$utteranceId errorCode:$errorCode" )
+        //}
         override fun onError(utteranceId: String?) {
             Log.e("Ins onError deprecated", utteranceId )
         }

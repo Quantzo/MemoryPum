@@ -75,11 +75,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun playResults(points: Int) {
 
-        textToSpeech?.speak(resources.getString(R.string.main_menu_score, points), TextToSpeech.QUEUE_FLUSH, null, "MainMenuResults")
+        textToSpeech?.speak(resources.getString(R.string.main_menu_score, points), TextToSpeech.QUEUE_FLUSH, null)
     }
 
     private fun playInstructions() {
-        textToSpeech?.speak(resources.getString(R.string.main_menu_instructions), TextToSpeech.QUEUE_FLUSH, null, "MainMenuInstructions")
+        textToSpeech?.speak(resources.getString(R.string.main_menu_instructions), TextToSpeech.QUEUE_FLUSH, null)
     }
 
     override fun onDestroy() {
