@@ -39,8 +39,11 @@ class MainActivity : AppCompatActivity() {
         numberOfPairs = preferences?.getInt("Number_Of_Pairs", 8) ?: 8
 
         textToSpeech = TextToSpeech(applicationContext, {status ->  if(status != TextToSpeech.ERROR){ textToSpeech?.language = Locale.getDefault(); playInstructions()}} )
+    }
 
-
+    override fun onStart() {
+        textToSpeech?.speak(resources.getString(R.string.main_menu_instructions), TextToSpeech.QUEUE_ADD, null)
+        super.onStart()
     }
 
     override fun onTouchEvent(event: MotionEvent?): Boolean {

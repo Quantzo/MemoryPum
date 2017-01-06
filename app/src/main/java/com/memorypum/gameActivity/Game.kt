@@ -27,7 +27,6 @@ class Game(val numberOfPairs: Int) {
         } else {
             return MapPosition(currentItem, res)
         }
-
     }
 
     fun isGameOver(): Boolean {

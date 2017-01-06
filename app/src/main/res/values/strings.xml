@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">MemoryPum</string>
-    <string name="title_activity_main">Test</string>
+    <string name="title_activity_main">MemoryPum</string>
+    <string name="title_activity_config">Configuration</string>
+    <string name="title_activity_instruction">Instruction</string>
+    <string name="title_activity_menu">Menu</string>
     <string name="main_menu_instructions">Swipe right to configure the game. Swipe left to start the game. Double touch for instructions. Long press to exit the application</string>
     <string name="instruction_instruction">Swipe left to play next message. Swipe right to play previous message. Swipe up to repeat current message. Long press to exit instructions menu.</string>
     <string name="instruction_config">Config menu instructions. Swipe up to increase number of Pairs in the game. Swipe down to decrease this number. Long press to exit the menu.</string>
@@ -69,7 +72,7 @@
     <string name="array1">Dog</string>
     <string name="array2">Cat</string>
     <string name="array3">Fox</string>
-    <string name="array4">Rabbit</string>
+    <string name="array4">Mouse</string>
     <string name="array5">Wolf</string>
     <string name="array6">Bear</string>
     <string name="array7">Eagle</string>
@@ -77,33 +80,33 @@
     <string name="array9">Cow</string>
     <string name="array10">Pig</string>
     <string name="array11">Sheep</string>
-    <string name="array12">Hamster</string>
-    <string name="array13">Elephant</string>
-    <string name="array14">Monkey</string>
+    <string name="array12">Fish</string>
+    <string name="array13">Frog</string>
+    <string name="array14">Horse</string>
     <string name="array15">Lion</string>
     <string name="array16">Tiger</string>
-    <string name="array17">Penguin</string>
+    <string name="array17">Snake</string>
     <string name="array18">Crab</string>
     <string name="array19">Whale</string>
-    <string name="array20">Lobster</string>
+    <string name="array20">Bird</string>
     <!--Fruits20-->
     <string name="array21">Apple</string>
-    <string name="array22">Pineapple</string>
-    <string name="array23">Strawberry</string>
+    <string name="array22">Papaya</string>
+    <string name="array23">Fig</string>
     <string name="array24">Cherry</string>
     <string name="array25">Orange</string>
     <string name="array26">Grape</string>
-    <string name="array27">Watermelon</string>
+    <string name="array27">Kiwi</string>
     <string name="array28">Banana</string>
     <string name="array29">Apricot</string>
     <string name="array30">Coconut</string>
-    <string name="array31">Cranberry</string>
+    <string name="array31">Khaki</string>
     <string name="array32">Lemon</string>
     <string name="array33">Mango</string>
     <string name="array34">Peach</string>
     <string name="array35">Pear</string>
     <string name="array36">Plum</string>
-    <string name="array37">Raspberry</string>
+    <string name="array37">Walnut</string>
     <string name="array38">Avocado</string>
     <string name="array39">Lychee</string>
     <!--Things10-->

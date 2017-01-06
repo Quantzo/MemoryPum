@@ -27,7 +27,13 @@ class GameActivity : AppCompatActivity() {
 
     private var points: Int = 0
 
+    private var numberOfCardsInRow: Int = 0
+
     var textView: AppCompatTextView? = null
+        private set
+        get
+
+    var textViewItemName: AppCompatTextView? = null
         private set
         get
 
@@ -38,19 +44,27 @@ class GameActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game)
         val numberOfPairs = intent.getIntExtra("Number_Of_Pairs", 8)
+        val numberOfCards = numberOfPairs * 2
+        var i:Int = 2
+        var NWD:Int = i
+        while(i < numberOfCards)
+        {
+            if(numberOfCards % i == 0)
+                NWD = i
+            i++
+        }
+        numberOfCardsInRow = NWD
+
         gameActivityGestureListener = GestureDetectorCompat(this, GameActivityGestures(this))
         game = Game(numberOfPairs)
 
         textView = findViewById(R.id.textGame) as AppCompatTextView
         textView?.text = game?.getCurrentIdIfRevealed().toString()
 
-
+        textViewItemName = findViewById(R.id.textItemName) as AppCompatTextView
         initializeList()
 
         textToSpeech = TextToSpeech(applicationContext, {status ->  if(status != TextToSpeech.ERROR){ textToSpeech?.language = Locale.getDefault()}} )
-
-
-
     }
     override fun onTouchEvent(event: MotionEvent?): Boolean {
         gameActivityGestureListener?.onTouchEvent(event)
@@ -99,6 +113,17 @@ class GameActivity : AppCompatActivity() {
         textToSpeech?.speak(idName + res, TextToSpeech.QUEUE_ADD, null)
     }
 
+    fun getCurrentNameIfRevealed(): String{
+        var result: String = "";
+
+        val id: Game.MapPosition? =  this.game?.getCurrentIdIfRevealed()
+        val idInt = id?.Id ?: 0
+        if(idInt > 0) {
+            result =  this?.idNamesList[idInt - 1]
+        }
+        return result
+    }
+
     override fun onDestroy() {
         textToSpeech?.stop()
         textToSpeech?.shutdown()
@@ -122,8 +147,8 @@ class GameActivity : AppCompatActivity() {
                 Log.d("GameActivitySwipeLeft", "Vibrated")
             } else {
                 context.textView?.text = context.game?.getCurrentIdIfRevealed().toString()
+                context.textViewItemName?.text = context.getCurrentNameIfRevealed()
             }
-
 
         }
         //Move Left
@@ -134,6 +159,7 @@ class GameActivity : AppCompatActivity() {
                 Log.d("GameActivitySwipeRight", "Vibrated")
             } else {
                 context.textView?.text = context.game?.getCurrentIdIfRevealed().toString()
+                context.textViewItemName?.text = context.getCurrentNameIfRevealed()
             }
         }
         //Move Down
@@ -144,6 +170,7 @@ class GameActivity : AppCompatActivity() {
                 Log.d("GameActivitySwipeUp", "Vibrated")
             } else {
                 context.textView?.text = context.game?.getCurrentIdIfRevealed().toString()
+                context.textViewItemName?.text = context.getCurrentNameIfRevealed()
             }
         }
         //Move Up
@@ -154,8 +181,21 @@ class GameActivity : AppCompatActivity() {
                 Log.d("GameActivitySwipeDown", "Vibrated")
             } else {
                 context.textView?.text = context.game?.getCurrentIdIfRevealed().toString()
+                context.textViewItemName?.text = context.getCurrentNameIfRevealed()
             }
         }
+
+        override fun onSingleTouch()
+        {
+            val result = (context as GameActivity).game?.canReveal() ?: false
+            if (!result) {
+                var cardName:String = context.getCurrentNameIfRevealed()
+                context.textToSpeech?.speak(cardName, TextToSpeech.QUEUE_ADD, null)
+                context.vibrate()
+                Log.d("GameActivityDoubleTouch", "Vibrated")
+            }
+        }
+
         //Reveal
         override fun onDoubleTouch() {
             val result = (context as GameActivity).game?.canReveal() ?: false
@@ -167,8 +207,10 @@ class GameActivity : AppCompatActivity() {
                 if (firstCard) {
                     context.textView?.text = context.game?.getCurrentIdIfRevealed().toString()
                     context.firstCardReveal(firstCardId)
+                    context.textViewItemName?.text = context.idNamesList[firstCardId-1]
                 } else {
                     if (resultOfSecondCardReveal) {
+                        context.textViewItemName?.text = context.idNamesList[secondCardId-1]
                         context.textView?.text = context.game?.getCurrentIdIfRevealed().toString()
                         context.points += 2
                         if (context.game?.isGameOver() ?: false) {
@@ -177,6 +219,7 @@ class GameActivity : AppCompatActivity() {
                         context.succesPairReveal(firstCardId)
 
                     } else {
+                        context.textViewItemName?.text = context.idNamesList[secondCardId-1]
                         context.failPairReveal(firstCardId, secondCardId)
                     }
                 }
@@ -188,7 +231,5 @@ class GameActivity : AppCompatActivity() {
             (context as? GameActivity)?.finish()
         }
 
-
-        override fun onSingleTouch(){}
     }
 }
