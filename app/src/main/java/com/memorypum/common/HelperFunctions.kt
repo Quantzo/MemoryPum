@@ -14,4 +14,14 @@ fun MutableList<String>.shuffle():List<String>
     return this
 }
 
+fun calculateCardsInRow(number: Int):Int
+{
+    var i  = Math.sqrt(number.toDouble()).toInt()
+    while(number % i != 0)
+    {
+        i -= 1
+    }
+    return number/i
+}
+
 

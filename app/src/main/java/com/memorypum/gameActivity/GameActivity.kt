@@ -15,6 +15,7 @@ import com.memorypum.R
 import com.memorypum.common.AppGesturesListener
 import com.memorypum.common.shuffle
 import java.util.*
+import com.memorypum.common.calculateCardsInRow
 
 
 class GameActivity : AppCompatActivity() {
@@ -44,19 +45,11 @@ class GameActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game)
         val numberOfPairs = intent.getIntExtra("Number_Of_Pairs", 8)
-        val numberOfCards = numberOfPairs * 2
-        var i:Int = 2
-        var NWD:Int = i
-        while(i < numberOfCards)
-        {
-            if(numberOfCards % i == 0)
-                NWD = i
-            i++
-        }
-        numberOfCardsInRow = NWD
+
+        numberOfCardsInRow = calculateCardsInRow(numberOfPairs*2)
 
         gameActivityGestureListener = GestureDetectorCompat(this, GameActivityGestures(this))
-        game = Game(numberOfPairs)
+        game = Game(numberOfPairs,numberOfCardsInRow)
 
         textView = findViewById(R.id.textGame) as AppCompatTextView
         textView?.text = game?.getCurrentIdIfRevealed().toString()
@@ -114,7 +107,7 @@ class GameActivity : AppCompatActivity() {
     }
 
     fun getCurrentNameIfRevealed(): String{
-        var result: String = "";
+        var result: String = ""
 
         val id: Game.MapPosition? =  this.game?.getCurrentIdIfRevealed()
         val idInt = id?.Id ?: 0
@@ -140,7 +133,7 @@ class GameActivity : AppCompatActivity() {
     {
         //Move Right
         override fun onSwipeLeft() {
-            val result = (context as GameActivity).game?.move({ p, mF -> p + 1 <= mF }, {r, m -> Math.min(m, (5 * r) + 4) }, { p -> p + 1 }) ?: false
+            val result = (context as GameActivity).game?.move({ p, mF -> p + 1 <= mF }, {r, m -> Math.min(m, (context.numberOfCardsInRow * r) + (context.numberOfCardsInRow - 1)) }, { p -> p + 1 }) ?: false
 
             if (!result) {
                 context.vibrate()
@@ -153,7 +146,7 @@ class GameActivity : AppCompatActivity() {
         }
         //Move Left
         override fun onSwipeRight() {
-            val result = (context as GameActivity).game?.move({ p, mF -> p - 1 >= mF }, { r, m -> r * 5 }, { p -> p - 1 }) ?: false
+            val result = (context as GameActivity).game?.move({ p, mF -> p - 1 >= mF }, { r, m -> r * context.numberOfCardsInRow }, { p -> p - 1 }) ?: false
             if (!result) {
                 context.vibrate()
                 Log.d("GameActivitySwipeRight", "Vibrated")
@@ -164,7 +157,7 @@ class GameActivity : AppCompatActivity() {
         }
         //Move Down
         override fun onSwipeUp() {
-            val result = (context as GameActivity).game?.move({ p, mF -> p + 5 <= mF }, {r, m -> m }, { p -> p + 5 }) ?: false
+            val result = (context as GameActivity).game?.move({ p, mF -> p + context.numberOfCardsInRow <= mF }, {r, m -> m }, { p -> p + context.numberOfCardsInRow }) ?: false
             if (!result) {
                 context.vibrate()
                 Log.d("GameActivitySwipeUp", "Vibrated")
@@ -175,7 +168,7 @@ class GameActivity : AppCompatActivity() {
         }
         //Move Up
         override fun onSwipeDown() {
-            val result = (context as GameActivity).game?.move({ p, mF -> p - 5 >= mF }, {r, m -> 0 }, { p -> p - 5 }) ?: false
+            val result = (context as GameActivity).game?.move({ p, mF -> p - context.numberOfCardsInRow >= mF }, {r, m -> 0 }, { p -> p - context.numberOfCardsInRow }) ?: false
             if (!result) {
                 context.vibrate()
                 Log.d("GameActivitySwipeDown", "Vibrated")

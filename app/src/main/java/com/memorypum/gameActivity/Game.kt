@@ -1,6 +1,6 @@
 package com.memorypum.gameActivity
 
-class Game(val numberOfPairs: Int) {
+class Game(val numberOfPairs: Int, val numberOfCardsInRow: Int) {
     private var currentItem = 0
         set(value) {
             field = value
@@ -69,7 +69,7 @@ class Game(val numberOfPairs: Int) {
     }
 
     private fun computeCurrentRow(position: Int) {
-        currentRow = position / 5
+        currentRow = position / numberOfCardsInRow
     }
 
 
